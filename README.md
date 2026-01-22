@@ -44,6 +44,8 @@ The stack demonstrates how to:
 - 🔗 Correlate data across all three pillars
 
 <img width="1920" height="911" alt="image" src="https://github.com/user-attachments/assets/cec58136-e79b-442c-b100-41f3429d6041" />
+<img width="1920" height="911" alt="image" src="https://github.com/user-attachments/assets/8c08135b-a08a-4504-bc7c-58264fff1522" />
+
 
 ---
 
