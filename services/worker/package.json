@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "worker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,7 +17,6 @@
     "@opentelemetry/sdk-node": "^0.211.0",
     "@opentelemetry/semantic-conventions": "^1.39.0",
     "express": "^5.2.1",
-    "node-fetch": "^3.3.2",
     "pino": "^10.2.1",
     "pino-http": "^11.0.0",
     "prom-client": "^15.1.3"

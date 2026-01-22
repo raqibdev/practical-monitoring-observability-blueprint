@@ -2,6 +2,8 @@ const express = require("express");
 const pino = require("pino");
 const pinoHttp = require("pino-http");
 const client = require("prom-client");
+const fetch = require("node-fetch");
+
 
 const app = express();
 app.use(express.json());
@@ -36,17 +38,29 @@ register.registerMetric(orderLatency);
 app.post("/order", async (req, res) => {
     const end = orderLatency.startTimer();
 
-    // simulate random failure
-    if (Math.random() < 0.2) {
+    try {
+        const response = await fetch("http://worker:4000/process", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ orderId: Date.now() }),
+        });
+
+        if (!response.ok) {
+            orderFailureCounter.inc();
+            end();
+            return res.status(500).json({ error: "worker failed" });
+        }
+
+        orderCounter.inc();
+        end();
+        res.json({ status: "order created" });
+    } catch (err) {
         orderFailureCounter.inc();
         end();
-        return res.status(500).json({ error: "order failed" });
+        res.status(500).json({ error: "worker unreachable" });
     }
-
-    orderCounter.inc();
-    end();
-    res.json({ status: "order created" });
 });
+
 
 app.get("/metrics", async (req, res) => {
     res.set("Content-Type", register.contentType);
