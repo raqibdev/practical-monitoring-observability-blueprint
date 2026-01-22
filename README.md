@@ -154,8 +154,8 @@ sequenceDiagram
         P->>W: GET /metrics
     end
 
-    A-.>>T: Send traces (OTLP)
-    W-.>>T: Send traces (OTLP)
+    A-->>T: Send traces (OTLP)
+    W-->>T: Send traces (OTLP)
 ```
 
 ### Data Storage Flow
