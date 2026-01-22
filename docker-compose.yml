@@ -1,0 +1,29 @@
+services:
+  tempo:
+    image: grafana/tempo:2.4.1
+    command: [ "-config.file=/etc/tempo.yaml" ]
+    volumes:
+      - ./observability/tempo/tempo.yaml:/etc/tempo.yaml
+    ports:
+      - "4318:4318"
+      - "3200:3200"
+
+  api:
+    build:
+      context: ./services/api
+    ports:
+      - "3000:3000"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4318/v1/traces
+    depends_on:
+      - tempo
+
+  worker:
+    build:
+      context: ./services/worker
+    ports:
+      - "4000:4000"
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4318/v1/traces
+    depends_on:
+      - tempo

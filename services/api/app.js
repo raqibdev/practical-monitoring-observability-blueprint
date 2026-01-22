@@ -2,8 +2,6 @@ const express = require("express");
 const pino = require("pino");
 const pinoHttp = require("pino-http");
 const client = require("prom-client");
-const fetch = require("node-fetch");
-
 
 const app = express();
 app.use(express.json());
