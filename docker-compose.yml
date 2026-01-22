@@ -27,3 +27,12 @@ services:
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://tempo:4318/v1/traces
     depends_on:
       - tempo
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - "9090:9090"
