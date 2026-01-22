@@ -43,6 +43,8 @@ The stack demonstrates how to:
 - 📝 Generate **structured logs** with Pino logger
 - 🔗 Correlate data across all three pillars
 
+<img width="1920" height="911" alt="image" src="https://github.com/user-attachments/assets/cec58136-e79b-442c-b100-41f3429d6041" />
+
 ---
 
 ## 🏗️ Architecture Overview
