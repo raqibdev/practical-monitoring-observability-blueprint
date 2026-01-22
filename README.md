@@ -1,4 +1,4 @@
-# 🔭 Practical Observability Blueprint
+# 🔭 Practical Monitoring & Observability Blueprint
 
 A production-ready observability stack demonstrating the **three pillars of observability** — **Metrics**, **Logs**, and **Traces** — using industry-standard open-source tools. This project showcases how to build comprehensive monitoring for distributed microservices.
 
@@ -6,7 +6,7 @@ A production-ready observability stack demonstrating the **three pillars of obse
 
 ## 📖 Table of Contents
 
-- [🔭 Practical Observability Blueprint](#-practical-observability-blueprint)
+- [🔭 Practical Monitoring & Observability Blueprint](#-practical-monitoring--observability-blueprint)
   - [📖 Table of Contents](#-table-of-contents)
   - [🎯 About the Project](#-about-the-project)
   - [🏗️ Architecture Overview](#️-architecture-overview)
@@ -284,8 +284,8 @@ docker compose version
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/practical-observability-blueprint.git
-   cd practical-observability-blueprint
+   git clone https://github.com/raqibdev/practical-monitoring-observability-blueprint.git
+   cd practical-monitoring-observability-blueprint
    ```
 
 2. **Start all services**
@@ -417,7 +417,7 @@ rate(orders_failed_total[5m]) * 100 / (rate(orders_created_total[5m]) + rate(ord
 ## 📁 Project Structure
 
 ```
-practical-observability-blueprint/
+practical-monitoring-observability-blueprint/
 ├── docker-compose.yml          # Container orchestration
 ├── README.md                   # This file
 │
